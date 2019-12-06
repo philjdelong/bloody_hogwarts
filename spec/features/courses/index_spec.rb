@@ -23,16 +23,16 @@ RSpec.describe "As a user" do
       @defense =
       @potions =
 
-      @c_black.courses.add_course(@defense)
-      @h_potter.courses.add_course(@defense)
-      @n_longbottom.courses.add_course(@defense)
+      @c_black.courses.add_courses(@defense)
+      @h_potter.courses.add_courses(@defense)
+      @n_longbottom.courses.add_courses(@defense)
 
       @h_potter.courses.add_course(@wizardry)
-      @n_longbottom.courses.add_course(@wizardry)
+      @n_longbottom.courses.add_courses(@wizardry)
 
-      @c_black.courses.add_course(@witchcraft)
+      @c_black.courses.add_courses(@witchcraft)
 
-      @h_potter.courses.add_course(@potions)
+      @h_potter.courses.add_courses(@potions)
 
       visit "/courses"
     end
