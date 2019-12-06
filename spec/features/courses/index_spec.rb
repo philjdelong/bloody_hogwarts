@@ -36,28 +36,27 @@ RSpec.describe "As a user" do
       visit "/courses"
     end
 
-    it "i can see all courses" do
-      expect(page).to have_content("Witchcraft")
-      expect(page).to have_content("Wizardry")
-      expect(page).to have_content("Defense Against the Dark Arts")
-      expect(page).to have_content("Potions")
-    end
+    it "i can see all courses and students enrolled" do
 
-    it "i can see how many students are enrolled in each course" do
-      expect(page).to have_content("Students enrolled: 1")
-      expect(page).to have_content("Students enrolled: 2")
-      expect(page).to have_content("Students enrolled: 3")
-      expect(page).to have_content("Students enrolled: 0")
+      within "#course-#{@witchcraft.id}" do
+        expect(page).to have_content(@witchcraft.name)
+        expect(page).to have_content("Students enrolled: #{@witchcraft.total_students}")
+      end
+
+      within "#course-#{@wizardry.id}" do
+        expect(page).to have_content(@wizardry.name)
+        expect(page).to have_content("Students enrolled: #{@wizardry.total_students}")
+      end
+
+      within "#course-#{@defense.id}" do
+        expect(page).to have_content(@defense.name)
+        expect(page).to have_content("Students enrolled: #{@defense.total_students}")
+      end
+
+      within "#course-#{@potions.id}" do
+        expect(page).to have_content(@potions.name)
+        expect(page).to have_content("Students enrolled: #{@potions.total_students}")
+      end
     end
   end
 end
-
-# ```
-# User Story 3 of 4
-# As a visitor,
-# When I visit '/courses'
-# I see a list of courses and the number of students enrolled in each course.
-#
-# (e.g. "Defense Against the Dark Arts: 5"
-#       "Herbology: 10")
-# ```
