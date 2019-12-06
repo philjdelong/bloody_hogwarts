@@ -1,0 +1,10 @@
+<h1>Courses: </h1>
+
+<% @courses.each do |course| %>
+
+  <section id = "course-<%= course.id %>">
+    <h2><%= course.name %></h2>
+    <p>Students enrolled: <%= course.total_students %></p>
+  </section>
+
+<% end %>
