@@ -1,9 +1,12 @@
 <h1>Students:</h1>
   <br><br>
-  
+
 <% @students.each do |student| %>
   <h2><%= student.name %></h2>
   <p><%= student.age %></p>
   <p><%= student.house %></p>
-  <br><br>
+    <br><br>
 <% end %>
+
+  <br><br>
+<h3>Students Average Age: <%= @students.average_age %> y/o</h3>
