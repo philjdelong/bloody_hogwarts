@@ -32,7 +32,6 @@ RSpec.describe "As a user" do
 
       @c_black.courses << @witchcraft
 
-      @h_potter.courses << @potions
 
       visit "/courses"
     end
@@ -44,11 +43,11 @@ RSpec.describe "As a user" do
       expect(page).to have_content("Potions")
     end
 
-    xit "i can see how many students are enrolled in each course" do
-      expect(page).to have_content("Witchcraft: 1")
-      expect(page).to have_content("Wizardry: 2")
-      expect(page).to have_content("Defense Against the Dark Arts: 3")
-      expect(page).to have_content("Potions: 1")
+    it "i can see how many students are enrolled in each course" do
+      expect(page).to have_content("Students enrolled: 1")
+      expect(page).to have_content("Students enrolled: 2")
+      expect(page).to have_content("Students enrolled: 3")
+      expect(page).to have_content("Students enrolled: 0")
     end
   end
 end
