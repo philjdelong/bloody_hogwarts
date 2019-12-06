@@ -18,21 +18,21 @@ RSpec.describe "As a user" do
           age: 13,
           house: "Gryffindor")
 
-      @witchcraft =
-      @wizardry =
-      @defense =
-      @potions =
+      @witchcraft = Course.create(name: "Witchcraft")
+      @wizardry = Course.create(name: "Wizardry")
+      @defense = Course.create(name: "Defense Against the Dark Arts")
+      @potions = Course.create(name: "Potions")
 
-      @c_black.courses.add_courses(@defense)
-      @h_potter.courses.add_courses(@defense)
-      @n_longbottom.courses.add_courses(@defense)
+      @c_black.courses << @defense
+      @h_potter.courses << @defense
+      @n_longbottom.courses << @defense
 
-      @h_potter.courses.add_course(@wizardry)
-      @n_longbottom.courses.add_courses(@wizardry)
+      @h_potter.courses << @wizardry
+      @n_longbottom.courses << @wizardry
 
-      @c_black.courses.add_courses(@witchcraft)
+      @c_black.courses << @witchcraft
 
-      @h_potter.courses.add_courses(@potions)
+      @h_potter.courses << @potions
 
       visit "/courses"
     end
